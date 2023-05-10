@@ -8,10 +8,16 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
 
 	</head>
 	<body>
+		<header>
+			<div class="mainheader2" id="home">
+			  <a href="index.html"><img src="assets/logo.png" class="rounded mx-auto d-block" alt=""></a>
+		  </div>
+		</header>
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -24,22 +30,23 @@
 						<div class="img" style="background-image: url(assets/kmion.jpg);">
 			      </div>
 						<div class="login-wrap p-4 p-md-5">
-			      	<div class="d-flex">
-			      		<div class="w-100">
-			      			<h3 class="mb-4">Iniciar Sesion</h3>
+						<div class="d-flex">
+			      			<div class="w-100">
+			      				<h3 class="mb-4">Iniciar Sesion</h3>
+			      			</div>
 			      		</div>
-			      	</div>
+			      	
 							<form action="#" class="signin-form">
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="name">Usuario</label>
-			      			<input type="text" class="form-control" placeholder="Usuario" required>
+			      			<input id="user" type="text" class="form-control" placeholder="Usuario" required>
 			      		</div>
 		            <div class="form-group mb-3">
 		            	<label class="label" for="password">Contraseña</label>
 		              <input type="password" class="form-control" placeholder="Contraseña" required>
 		            </div>
 		            <div class="form-group">
-		            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Iniciar Sesion</button>
+		            	<button id="login" type="submit" class="form-control btn btn-primary rounded submit px-3">Iniciar Sesion</button>
 		            </div>
 		            <div class="form-group d-md-flex">
 		            	<div class="w-50 text-left">
@@ -66,6 +73,34 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
 
+  <script>
+	const DOMlogin = document.querySelector('#login');
+	const DOMuser = document.querySelector('#user');
+	var data_user = document.getElementById('user');
+
+
+
+	function login() {
+		const Toast = Swal.mixin({
+  			toast: true,
+  			position: 'top-end',
+  			showConfirmButton: false,
+  			timer: 3000,
+  			timerProgressBar: true,
+  			didOpen: (toast) => {
+    			toast.addEventListener('mouseenter', Swal.stopTimer)
+    			toast.addEventListener('mouseleave', Swal.resumeTimer)
+  			}
+		})
+
+		Toast.fire({
+		  icon: 'success',
+		  title: 'Has iniciado sesión correctamente ' + data_user.textContent
+		})
+	}
+
+	DOMlogin.addEventListener('click', user)
+  </script>
 	</body>
 </html>
 

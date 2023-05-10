@@ -8341,3 +8341,17 @@ h1, h2, h3, h4, h5,
         border: 1px solid transparent;
         background: #e3b04b;
         color: #fff; }
+
+      .mainheader2{
+          height: 1px;;
+      }
+      
+      .mainheader2 img{
+          position: relative;
+          width: 7.5%;
+          margin-top: 25px;
+      }
+
+      header{
+        margin-bottom: 25px;
+      }
