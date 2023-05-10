@@ -76,8 +76,7 @@
   <script>
 	const DOMlogin = document.querySelector('#login');
 	const DOMuser = document.querySelector('#user');
-	var data_user = document.getElementById('user');
-
+	var data_user;
 
 
 	function login() {
@@ -95,11 +94,15 @@
 
 		Toast.fire({
 		  icon: 'success',
-		  title: 'Has iniciado sesión correctamente ' + data_user.textContent
+		  title: 'Has iniciado sesión correctamente ' + data_user
 		})
 	}
 
-	DOMlogin.addEventListener('click', login)
+	DOMlogin.addEventListener('click', () => {
+		data_user = document.getElementById('user').value;
+		if (data_user != "") login();
+	});
+
   </script>
 	</body>
 </html>
